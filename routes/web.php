@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/todo','Todolistcontroller@index');
+Route::post('/todo','Todolistcontroller@update');
+Route::delete('/todo/{todo}','Todolistcontroller@delete');
+Auth::routes();
+
+
+Route::get('/messageboard','MessageBoardControll@index');
+Route::post('/messageboard','MessageBoardControll@newPast');
+Route::patch('/messageboard/{return_id}','MessageBoardControll@returnPast');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
