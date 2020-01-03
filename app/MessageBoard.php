@@ -42,12 +42,14 @@ class MessageBoard extends Model
      */
     public function newPast($request)
     {
-        $newPast = MessageBoard::create([
-            'user_id'  => $request->input('user_id'),
-            'content'  => $request->input('content'),
-            'dateTime' => date('Y-m-d H:i:s')
-        ]);
-        return $newPast;
+        $MessageBoard = new MessageBoard;
+
+        $MessageBoard->user_id = $request->input('user_id');
+        $MessageBoard->content = $request->input('content');
+        $MessageBoard->dateTime = date('Y-m-d H:i:s');
+        $newPast = $MessageBoard->save();
+
+        return json_encode($newPast);
     }
 
     /**
@@ -57,13 +59,17 @@ class MessageBoard extends Model
      */
     public function returnPast($request , $return_id)
     {
-        $returnPast = MessageBoard::create([
-            'user_id'  => $request->input('user_id'),
-            'return_id'=> $return_id,
-            'content'  => $request->input('content'),
-            'dateTime' => date('Y-m-d H:i:s')
-        ]);
-        return $returnPast;
+
+        $MessageBoard = new MessageBoard;
+
+        $MessageBoard->user_id = $request->input('user_id');
+        $MessageBoard->return_id = $return_id;
+        $MessageBoard->content = $request->input('content');
+        $MessageBoard->dateTime = date('Y-m-d H:i:s');
+        
+        $returnPast = $MessageBoard->save();
+        
+        return json_encode($returnPast);
     }
     
 
