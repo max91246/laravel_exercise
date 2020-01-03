@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Article;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('MessageBoardApi', 'api\MessageBoardApi@index');
+Route::get('MessageBoardApi/{id}', 'api\MessageBoardApi@show');
+Route::post('MessageBoardApi', 'api\MessageBoardApi@newPast');
+Route::put('MessageBoardApi/{id}', 'api\MessageBoardApi@returnPast');
+Route::delete('MessageBoardApi/{id}', 'api\MessageBoardApi@delete');

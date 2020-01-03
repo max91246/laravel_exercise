@@ -38,7 +38,7 @@ class MessageBoardControll extends Controller
 
     }
 
-    public function returnPast(Request $request ,$return_id){
+    public function returnPast(messageRequest $request ,$return_id){
 
         $newPast = $this->MessageBoardClass->returnPast($request , $return_id);
         return redirect('/messageboard');
