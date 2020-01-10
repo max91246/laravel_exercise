@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Hash;
 class AuthApi extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index','show']]);
-    }
-
     public function login(Request $request){
         
         
