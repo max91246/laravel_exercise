@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', 'api\AuthApi@login');
+Route::post('/register', 'api\AuthApi@register');
+
+
 Route::get('MessageBoardApi', 'api\MessageBoardApi@index');
 Route::get('MessageBoardApi/{id}', 'api\MessageBoardApi@show');
 Route::post('MessageBoardApi', 'api\MessageBoardApi@newPast');
